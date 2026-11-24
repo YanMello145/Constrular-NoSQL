@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Constrular - Sistema NoSQL</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            max-width: 750px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        h1 {
+            color: #d66b20;
+            margin-bottom: 10px;
+        }
+
+        .descricao {
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .opcoes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 25px 20px;
+        }
+
+        .card h2 {
+            color: #d66b20;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 42px;
+        }
+
+        .botao {
+            display: inline-block;
+            background: #d66b20;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background: #b95816;
+        }
+
+        footer {
+            margin-top: 35px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .opcoes {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>CONSTRULAR</h1>
+
+        <p class="descricao">
+            Sistema de gerenciamento utilizando banco de dados MongoDB.
+        </p>
+
+        <div class="opcoes">
+
+            <div class="card">
+
+                <h2>Gerenciamento de Clientes</h2>
+
+                <p>
+                    Cadastro, consulta, pesquisa, atualização
+                    e exclusão de clientes.
+                </p>
+
+                <a href="crud.php" class="botao">
+                    Acessar CRUD
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Consulta de Vendas</h2>
+
+                <p>
+                    Acesse os registros de vendas armazenados
+                    no banco de dados NoSQL.
+                </p>
+
+                <a href="consultar_vendas.php" class="botao">
+                    Consultar Vendas
+                </a>
+
+            </div>
+
+        </div>
+
+        <footer>
+            Constrular NoSQL - Sistema desenvolvido em PHP e MongoDB.
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
