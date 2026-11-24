@@ -1,6 +1,6 @@
 FROM php:8.3-apache
 
-# Instalar dependências necessárias
+# Instalar dependências do sistema
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
@@ -13,16 +13,20 @@ RUN apt-get update && apt-get install -y \
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Definir pasta do sistema
+# Configurar Apache para a porta do Render
+RUN sed -i 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf \
+    && sed -i 's/:80>/:10000>/' /etc/apache2/sites-available/000-default.conf
+
+# Diretório do projeto
 WORKDIR /var/www/html
 
-# Copiar arquivos do projeto
+# Copiar arquivos
 COPY . /var/www/html
 
-# Instalar dependências PHP
+# Instalar dependências
 RUN composer install --no-dev --optimize-autoloader
 
-# Configurar Apache
-RUN a2enmod rewrite
+# Permitir execução do Apache
+EXPOSE 10000
 
-EXPOSE 80
+CMD ["apache2-foreground"]
